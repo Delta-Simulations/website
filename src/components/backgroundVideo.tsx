@@ -1,41 +1,60 @@
-import React, { ReactNode, useRef } from 'react';
+import React, { ReactNode, useRef, type FC, useEffect } from 'react'
 
 type T_BackgroundVideoProps = {
-	videoSource: string;
-	children: ReactNode;
-	playbackSpeed: number;
-};
+  videoSource: string
+  children: ReactNode
+  setScrollPosition: React.Dispatch<React.SetStateAction<number>>
+  playbackSpeed: number
+}
 
-const BackgroundVideo: React.FC<T_BackgroundVideoProps> = ({
-	videoSource,
-	children,
-	playbackSpeed,
-}) => {
-	const videoRef = useRef<HTMLVideoElement>(null);
+const BackgroundVideo: FC<T_BackgroundVideoProps> = (props: T_BackgroundVideoProps) => {
+  const { playbackSpeed, setScrollPosition, videoSource, children } = props
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-	React.useEffect(() => {
-		if (videoRef.current) {
-			videoRef.current.playbackRate = playbackSpeed;
-		}
-	}, [playbackSpeed]);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = playbackSpeed
+    }
+  }, [playbackSpeed])
 
-	return (
-		<div className="relative w-full h-full overflow-hidden">
-			<video
-				ref={videoRef}
-				autoPlay
-				loop
-				muted
-				playsInline
-				className="absolute top-0 left-0 w-full h-full object-cover"
-			>
-				<source src={videoSource} type="video/mp4" />
-				Your browser does not support the video tag.
-			</video>
-			<div className="absolute top-0 left-0 w-full h-full  bg-black/80"></div>
-			<div className="relative z-10">{children}</div>
-		</div>
-	);
-};
+  const divRef = useRef<HTMLDivElement>(null)
 
-export default BackgroundVideo;
+  useEffect(() => {
+    const handleScroll = () => {
+      if (divRef.current) {
+        const currentPosition = divRef.current.scrollTop
+        setScrollPosition(currentPosition)
+      }
+    }
+    const divElement = divRef.current
+    if (divElement) {
+      divElement.addEventListener('scroll', handleScroll)
+
+      return () => {
+        divElement.removeEventListener('scroll', handleScroll)
+      }
+    }
+  }, [setScrollPosition])
+
+  return (
+    <div className="relative w-screen h-full overflow-hidden">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src={videoSource} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute top-0 left-0 w-full h-full  bg-black/80"></div>
+      <div className="relative h-screen  z-10 overflow-auto overflow-x-hidden w-screen" ref={divRef}>
+        {children}
+      </div>
+    </div>
+  )
+}
+
+export default BackgroundVideo
