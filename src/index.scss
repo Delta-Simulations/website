@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('bahnschrift.ttf') format('tff'),
+       url('Bahnschrift.woff') format('woff');
+}
+
 body {
+  font-family: 'Bahnschrift', sans-serif; /* Fallback font */
   width: 100vw;
 }
+
 #root {
   width: 100vw;
 }
