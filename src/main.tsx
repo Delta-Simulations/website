@@ -19,7 +19,7 @@ const Main = () => {
 
   return (
     <BrowserRouter>
-      <BackgroundVideo videoSource="/.Sunset.mp4" playbackSpeed={1} setScrollPosition={setScroll}>
+      <BackgroundVideo videoSource="/public/WebsiteTrailer.mp4" playbackSpeed={1} setScrollPosition={setScroll}>
         <ButtonBar buttons={NavButtons} logo={logo} className={''} fillBg={scroll !== 0} />
         <Routes>
           <Route path="/" element={<Home />} />
