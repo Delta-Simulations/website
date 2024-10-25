@@ -35,7 +35,7 @@ export const Home = () => {
       >
         <div className="text-5xl font-bold text-white text-center">Delta Simulations</div>
         <div className="flex flex-col gap-6 justify-center items-center">
-          <div className=" w-1/2 text-white text-center">
+          <div className="w-1/2 text-white text-center">
             We are an open-source development community dedicated to creating high-fidelity aircraft for flight
             simulation.
           </div>
@@ -43,12 +43,12 @@ export const Home = () => {
             <button
               className="p-[3px] relative"
               onClick={() => {
-                openUrlInNewTab('https://github.com/infinity-MSFS/LauncherV2/releases')
+                openUrlInNewTab('https://github.com/Delta-Simulations')
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-800 rounded-lg" />
-              <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
-                Installer
+              <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
+                Download Now
               </div>
             </button>
             <button
@@ -58,11 +58,22 @@ export const Home = () => {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-slate-500 to-slate-400 rounded-lg" />
-              <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent ">
-                More Information
+              <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
+                About Us
               </div>
             </button>
           </div>
+          <button
+            className="p-[3px] relative w-1/2"
+            onClick={() => {
+              openUrlInNewTab('https://discord.gg/delta-simulations-843936830369431572')
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-500 to-slate-400 rounded-lg" />
+            <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-center">
+              Learn More
+            </div>
+          </button>
         </div>
       </div>
     </div>

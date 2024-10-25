@@ -49,7 +49,7 @@ const BackgroundVideo: FC<T_BackgroundVideoProps> = (props: T_BackgroundVideoPro
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 left-0 w-full h-full  bg-black/80"></div>
+      <div className="absolute top-0 left-0 w-full h-full  bg-black/60"></div>
       <div className="relative h-screen  z-10 overflow-auto overflow-x-hidden w-screen" ref={divRef}>
         {children}
       </div>
