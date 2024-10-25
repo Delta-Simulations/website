@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 export const Home = () => {
   const [pageWidth, setPageWidth] = useState(window.innerWidth)
-  const [pageHeight, setPageHeight] = useState(window.innerHeight)
+  const [, setPageHeight] = useState(window.innerHeight)
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,15 +31,15 @@ export const Home = () => {
   return (
     <div className="flex w-full h-5/6 items-center justify-center overflow-y-auto">
       <div
-        className={`flex ${parentFlexDirectionClass} h-full w-2/3 gap-10 items-center ${childChildFlexSpacingClass} `}
+        className={`flex ${parentFlexDirectionClass} h-full w-2/3 gap-8 items-center ${childChildFlexSpacingClass} `}
       >
-        <div className="text-5xl font-bold text-white text-center">Delta Simulations</div>
-        <div className="flex flex-col gap-6 justify-center items-center">
-          <div className="w-1/2 text-white text-center">
+        <div className="text-6xl font-bold text-white text-left">Delta Simulations</div>
+        <div className="flex flex-col gap-4 justify-center items-center">
+          <div className="w-1/2 text-white text-right">
             We are an open-source development community dedicated to creating high-fidelity aircraft for flight
             simulation.
           </div>
-          <div className={`flex ${flexDirectionClass} justify-center gap-5 items-center`}>
+          <div className={`flex ${flexDirectionClass} justify-center gap-4 items-center`}>
             <button
               className="p-[3px] relative"
               onClick={() => {

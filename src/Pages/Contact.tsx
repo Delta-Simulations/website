@@ -1,8 +1,8 @@
 export const Contact = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen p-8">
+    <div className="flex flex-col items-center justify-start gap-6 p-5">
       {/* Google Form Embed */}
-      <div className="w-full mb-16 text-center" > {/* Increased margin-bottom for better spacing */}
+      <div className="w-full mb-10 items-justify" > {/* Increased margin-bottom for better spacing */}
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSd6fNlJSlfW11IjDmH92_N-WVoLioZqVFVqVzawav-OjljbAg/viewform?embedded=true"
           width="100%"
